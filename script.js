@@ -286,7 +286,7 @@ const GALLERY_ITEMS = [
 ];
 
 const PLAYLIST = [
-  { title: "Happiness — Rex Orange County", src: "happiness.mp3" },
+  { title: "Happiness — Rex Orange County", src: "audio/happiness.mp3" },
 ];
 
 const METER_RESULTS = [
