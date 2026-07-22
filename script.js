@@ -286,11 +286,7 @@ const GALLERY_ITEMS = [
 ];
 
 const PLAYLIST = [
-  { title: "Akhirnya Kumenemukanmu — Naff", src: "" },
-  { title: "Sempurna — Andra & The Backbone", src: "" },
-  { title: "Jika Itu Yang Kau Mau — Vidi Aldiano", src: "" },
-  { title: "Karena Kamu — Yura Yunita", src: "" },
-  { title: "I Love You — Mocca", src: "" }
+  { title: "Happiness — Rex Orange County", src: "happiness.mp3" },
 ];
 
 const METER_RESULTS = [
