@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Sebuah persembahan cinta yang tulus, ditulis dari lubuk hati yang paling dalam." />
+  <meta property="og:title" content="I Love You — Untuk Kamu, Selalu" />
+  <meta property="og:description" content="Sebuah ruang kecil yang aku buat khusus untukmu." />
+  <title>I Love You — Untuk Kamu, Selalu</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500&family=Great+Vibes&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===== CANVAS LAYERS ===== -->
+  <canvas id="canvas-bg" aria-hidden="true"></canvas>
+  <div id="mouse-glow" aria-hidden="true"></div>
+  <div id="particle-container" aria-hidden="true"></div>
+
+  <!-- ===== AUDIO PLAYER ===== -->
+  <div id="audio-player" role="region" aria-label="Pemutar Musik Romantis">
+    <button id="btn-audio-toggle" class="audio-btn" aria-label="Putar musik">
+      <svg class="icon-play" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5,3 19,12 5,21"/></svg>
+      <svg class="icon-pause" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+    </button>
+    <div class="audio-info">
+      <span id="audio-title">♪ Pilih Lagu...</span>
+      <div class="audio-controls">
+        <button id="btn-prev" class="audio-ctrl" aria-label="Lagu sebelumnya">‹‹</button>
+        <button id="btn-next" class="audio-ctrl" aria-label="Lagu berikutnya">››</button>
+      </div>
+    </div>
+    <audio id="audio-element"></audio>
+  </div>
+
+  <!-- ===== NAV DOTS ===== -->
+  <nav id="nav-dots" aria-label="Navigasi halaman">
+    <button class="nav-dot active" data-section="opening" aria-label="Opening"></button>
+    <button class="nav-dot" data-section="love-letter" aria-label="Love Letter"></button>
+    <button class="nav-dot" data-section="quotes" aria-label="Romantic Quotes"></button>
+    <button class="nav-dot" data-section="pantun" aria-label="Pantun Cinta"></button>
+    <button class="nav-dot" data-section="teka-teki" aria-label="Teka Teki"></button>
+    <button class="nav-dot" data-section="gallery" aria-label="Love Gallery"></button>
+    <button class="nav-dot" data-section="love-meter" aria-label="Love Meter"></button>
+    <button class="nav-dot" data-section="countdown" aria-label="Countdown"></button>
+    <button class="nav-dot" data-section="do-you-love-me" aria-label="Do You Love Me"></button>
+    <button class="nav-dot" data-section="ending" aria-label="Ending"></button>
+  </nav>
+
+  <!-- ============================= -->
+  <!-- SECTION 1: OPENING SCREEN     -->
+  <!-- ============================= -->
+  <section id="opening" class="page-section active" aria-labelledby="opening-heading">
+    <div class="opening-inner">
+      <div class="opening-petals" aria-hidden="true">
+        <span class="petal p1">🌹</span>
+        <span class="petal p2">🌸</span>
+        <span class="petal p3">✨</span>
+        <span class="petal p4">💫</span>
+        <span class="petal p5">🌹</span>
+        <span class="petal p6">🌸</span>
+      </div>
+      <div class="glass-card opening-card">
+        <div class="opening-badge">✦ Sebuah Persembahan ✦</div>
+        <div class="heart-logo" aria-hidden="true">
+          <svg viewBox="0 0 100 90" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="heartGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:#ff6b9d"/>
+                <stop offset="50%" style="stop-color:#c0392b"/>
+                <stop offset="100%" style="stop-color:#d4af37"/>
+              </linearGradient>
+            </defs>
+            <path d="M50 85 C50 85 5 55 5 30 C5 15 17 5 30 5 C38 5 45 9 50 15 C55 9 62 5 70 5 C83 5 95 15 95 30 C95 55 50 85 50 85 Z" fill="url(#heartGrad)"/>
+          </svg>
+        </div>
+        <h1 id="opening-heading" class="opening-title">
+          <span class="title-line-1">Untuk Kamu,</span>
+          <span class="title-line-2 great-vibes">Selalu dan Selamanya</span>
+        </h1>
+        <p class="opening-subtitle">Di setiap detak jantungku, ada namamu yang terukir dengan tinta paling abadi.</p>
+        <button id="btn-enter" class="btn-primary pulse-btn" aria-label="Masuk ke website">
+          <span>Buka Suratku</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+      <div class="opening-scroll-hint" aria-hidden="true">
+        <span>Scroll ke bawah</span>
+        <div class="scroll-arrow"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================= -->
+  <!-- SECTION 2: LOVE LETTER        -->
+  <!-- ============================= -->
+  <section id="love-letter" class="page-section" aria-labelledby="love-letter-heading">
+    <div class="section-inner">
+      <div class="section-badge">💌 Surat Cinta</div>
+      <h2 id="love-letter-heading" class="section-title">Kepada Kamu yang Aku Cintai</h2>
+      <div class="letter-container">
+        <div class="letter-paper glass-card">
+          <div class="letter-header">
+            <span class="letter-date" id="letter-date"></span>
+            <div class="letter-decoration" aria-hidden="true">✦ ✦ ✦</div>
+          </div>
+          <div class="letter-body">
+            <p class="letter-salutation">Kepada kamu yang selalu ada di setiap sudut pikiranku,</p>
+
+            <p>Ada momen-momen kecil yang sering aku perhatikan diam-diam — cara kamu tertawa ketika sesuatu benar-benar membuatmu geli, cara kamu mengerutkan dahi saat sedang berpikir keras, dan cara kamu menatap sesuatu yang kamu sukai dengan mata yang sedikit berbinar. Momen-momen itu yang, tanpa kamu sadari, perlahan mengisi ruang kosong di dalam dadaku hingga penuh sesak oleh rasa sayang yang tidak bisa lagi aku bendung.</p>
+
+            <p>Aku ingin kamu tahu bahwa bersyukur adalah kata yang terlalu sederhana untuk menggambarkan apa yang aku rasakan sejak kamu hadir. Ada sesuatu yang berubah dalam cara aku melihat dunia — langit terasa lebih biru, pagi terasa lebih ringan, dan bahkan hari yang paling biasa pun terasa seperti hadiah kecil yang berharga hanya karena kamu ada di dalamnya. Kamu bukan sekadar membuat hidupku lebih indah. Kamu membuatnya terasa <em>bermakna</em>.</p>
+
+            <p>Aku masih ingat saat pertama kali menyadari bahwa perasaanku padamu bukan perasaan biasa. Bukan satu momen yang dramatis seperti dalam film, tapi akumulasi dari banyak hal kecil — percakapan tengah malam yang tidak ada habisnya, tawa yang meledak tanpa sebab jelas, kesunyian yang terasa nyaman hanya karena kita ada bersama. Dari situ aku paham: mencintaimu bukan sesuatu yang aku pilih secara sadar. Itu adalah sesuatu yang terjadi begitu saja, seperti napas — alami, tanpa usaha, dan tidak bisa kuhentikan sekalipun aku mau.</p>
+
+            <p>Aku tahu bahwa cinta sejati bukan hanya soal perasaan yang meluap-luap di awal. Ia adalah komitmen untuk tetap memilih satu sama lain bahkan ketika semuanya tidak sempurna. Dan aku ingin kamu tahu — aku sudah memilihmu. Bukan karena kamu sempurna, tapi karena kekuranganmu pun terasa seperti bagian dari dirimu yang tidak ingin aku ubah. Kamu apa adanya adalah seseorang yang paling aku inginkan.</p>
+
+            <p>Ada impian-impian kecil yang sering aku bayangkan tentang kita — sarapan di pagi yang tenang, berdebat soal hal sepele lalu tertawa sendiri, menggenggam tanganmu saat sedang tidak ada yang perlu dibicarakan, menjadi tempat pertama yang kamu ceritakan sesuatu. Impian sederhana, tapi untukku, itu adalah gambaran dari surga yang paling nyata.</p>
+
+            <p>Aku juga ingin berjanji — bukan janji besar yang terdengar megah, tapi janji yang datang dari tempat yang paling dalam. Aku berjanji untuk selalu berusaha menjadi yang terbaik untukmu, meski aku tahu aku tidak akan selalu berhasil. Aku berjanji untuk mendengarkan, bahkan ketika kamu tidak bisa menemukan kata-katanya. Aku berjanji untuk tetap di sisimu ketika hari-hari terasa berat, dan ikut berbahagia sepenuhnya ketika kamu sedang di puncak kebahagiaanmu.</p>
+
+            <p>Kamu adalah rumah yang aku temukan setelah lama merasa tersesat. Kamu adalah ketenangan yang aku cari setelah begitu lama merasa gelisah. Dan meski aku tidak tahu semua yang akan terjadi ke depannya, satu hal yang aku yakini sepenuh hati: selama kamu ada, aku punya alasan yang cukup untuk terus melangkah.</p>
+
+            <p class="letter-closing">Dengan seluruh cinta yang mampu aku berikan,</p>
+            <p class="letter-signature great-vibes">Seseorang yang sangat mencintaimu 💕</p>
+          </div>
+          <div class="letter-seal" aria-hidden="true">
+            <span>💌</span>
+          </div>
+        </div>
+      </div>
+      <button class="btn-nav-next" data-target="quotes">Lanjut ke Quotes ›</button>
+    </div>
+  </section>
+
+  <!-- ============================= -->
+  <!-- SECTION 3: ROMANTIC QUOTES    -->
+  <!-- ============================= -->
+  <section id="quotes" class="page-section" aria-labelledby="quotes-heading">
+    <div class="section-inner">
+      <div class="section-badge">💬 Kata-Kata Cinta</div>
+      <h2 id="quotes-heading" class="section-title">Romantic Quotes</h2>
+      <p class="section-subtitle">Klik untuk kutipan berikutnya</p>
+      <div class="quote-stage" id="quote-stage" role="region" aria-live="polite" aria-label="Kutipan Romantis">
+        <div class="glass-card quote-card" id="quote-card">
+          <div class="quote-ornament" aria-hidden="true">"</div>
+          <p class="quote-text" id="quote-text"></p>
+          <div class="quote-ornament quote-ornament--close" aria-hidden="true">"</div>
+          <div class="quote-counter" id="quote-counter"></div>
+        </div>
+        <div class="quote-navigation">
+          <button class="btn-quote-prev" id="btn-quote-prev" aria-label="Kutipan sebelumnya">‹</button>
+          <div class="quote-dots" id="quote-dots"></div>
+          <button class="btn-quote-next" id="btn-quote-next" aria-label="Kutipan berikutnya">›</button>
+        </div>
+      </div>
+      <button class="btn-nav-next" data-target="pantun">Lanjut ke Pantun ›</button>
+    </div>
+  </section>
+
+  <!-- ============================= -->
+  <!-- SECTION 4: PANTUN CINTA       -->
+  <!-- ============================= -->
+  <section id="pantun" class="page-section" aria-labelledby="pantun-heading">
+    <div class="section-inner">
+      <div class="section-badge">🌹 Pantun Cinta</div>
+      <h2 id="pantun-heading" class="section-title">Pantun Untuk Kamu</h2>
+      <p class="section-subtitle">Setiap pantun, sebuah rasa yang ingin aku sampaikan</p>
+      <div class="pantun-grid" id="pantun-grid" role="list">
+        <!-- Populated by JS -->
+      </div>
+      <button class="btn-nav-next" data-target="teka-teki">Lanjut ke Teka Teki ›</button>
+    </div>
+  </section>
+
+  <!-- ============================= -->
+  <!-- SECTION 5: TEKA TEKI          -->
+  <!-- ============================= -->
+  <section id="teka-teki" class="page-section" aria-labelledby="teka-teki-heading">
+    <div class="section-inner">
+      <div class="section-badge">🔍 Teka Teki Romantis</div>
+      <h2 id="teka-teki-heading" class="section-title">Teka Teki &amp; Mini Game</h2>
+      <p class="section-subtitle">Uji perasaanmu, lalu buktikan cintamu</p>
+
+      <!-- Teka Teki List -->
+      <div class="riddle-list" id="riddle-list" role="list">
+        <!-- Populated by JS -->
+      </div>
+
+      <!-- Mini Game -->
+      <div class="mini-game glass-card" id="mini-game" aria-labelledby="mini-game-heading">
+        <div class="mini-game-header">
+          <span class="section-badge">🎮 Mini Game</span>
+          <h3 id="mini-game-heading">Tebak Jawabannya!</h3>
+          <p>Kamu pasti sudah tahu jawabannya...</p>
+        </div>
+        <div class="game-content" id="game-content">
+          <!-- Populated by JS -->
+        </div>
+        <div class="game-feedback" id="game-feedback" aria-live="polite"></div>
+      </div>
+
+      <button class="btn-nav-next" data-target="gallery">Lanjut ke Galeri ›</button>
+    </div>
+  </section>
+
+  <!-- ============================= -->
+  <!-- SECTION 6: LOVE GALLERY       -->
+  <!-- ============================= -->
+  <section id="gallery" class="page-section" aria-labelledby="gallery-heading">
+    <div class="section-inner">
+      <div class="section-badge">📸 Love Gallery</div>
+      <h2 id="gallery-heading" class="section-title">Kenangan yang Selalu Aku Simpan</h2>
+      <p class="section-subtitle">Setiap foto adalah cerita yang aku banggakan</p>
+      <div class="gallery-slider" id="gallery-slider" role="region" aria-label="Galeri Foto">
+        <div class="gallery-track" id="gallery-track">
+          <!-- Populated by JS -->
+        </div>
+        <button class="gallery-btn gallery-btn--prev" id="gallery-prev" aria-label="Foto sebelumnya">‹</button>
+        <button class="gallery-btn gallery-btn--next" id="gallery-next" aria-label="Foto berikutnya">›</button>
+        <div class="gallery-indicators" id="gallery-indicators"></div>
+      </div>
+      <!-- Lightbox -->
+      <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Tampilan foto besar" hidden>
+        <button class="lightbox-close" id="lightbox-close" aria-label="Tutup">✕</button>
+        <div class="lightbox-inner">
+          <img id="lightbox-img" src="" alt="" />
+          <p id="lightbox-caption" class="lightbox-caption"></p>
+        </div>
+      </div>
+      <button class="btn-nav-next" data-target="love-meter">Lanjut ke Love Meter ›</button>
+    </div>
+  </section>
+
+  <!-- ============================= -->
+  <!-- SECTION 7: LOVE METER         -->
+  <!-- ============================= -->
+  <section id="love-meter" class="page-section" aria-labelledby="love-meter-heading">
+    <div class="section-inner">
+      <div class="section-badge">💞 Love Meter</div>
+      <h2 id="love-meter-heading" class="section-title">Seberapa Besar Cintaku?</h2>
+      <div class="meter-container glass-card" id="meter-container">
+        <div class="meter-icon" aria-hidden="true">💕</div>
+        <p class="meter-prompt">Klik tombol di bawah untuk mengukur cintaku...</p>
+        <button class="btn-primary" id="btn-meter-start" aria-label="Mulai pengukuran cinta">Ukur Sekarang ✨</button>
+        <div class="meter-bar-wrapper" id="meter-bar-wrapper" hidden>
+          <div class="meter-bar-track">
+            <div class="meter-bar-fill" id="meter-bar-fill"></div>
+          </div>
+          <div class="meter-percentage" id="meter-percentage">0%</div>
+        </div>
+        <div class="meter-result" id="meter-result" hidden>
+          <div class="meter-result-icon" aria-hidden="true">💗</div>
+          <p class="meter-result-text" id="meter-result-text"></p>
+        </div>
+      </div>
+      <button class="btn-nav-next" data-target="countdown">Lanjut ke Countdown ›</button>
+    </div>
+  </section>
+
+  <!-- ============================= -->
+  <!-- SECTION 8: COUNTDOWN          -->
+  <!-- ============================= -->
+  <section id="countdown" class="page-section" aria-labelledby="countdown-heading">
+    <div class="section-inner">
+      <div class="section-badge">⏳ Countdown</div>
+      <h2 id="countdown-heading" class="section-title">Waktu yang Kita Lewati Bersama</h2>
+      <p class="section-subtitle">Setiap detik adalah anugerah yang aku syukuri bersamamu</p>
+      <div class="countdown-setup glass-card" id="countdown-setup">
+        <p class="countdown-setup-text">Masukkan tanggal spesial kita</p>
+        <input type="date" id="countdown-date-input" class="date-input" aria-label="Tanggal hubungan dimulai" />
+        <button class="btn-primary" id="btn-countdown-set" aria-label="Hitung waktu bersama">Hitung Waktu Kita ✨</button>
+      </div>
+      <div class="countdown-display" id="countdown-display" hidden>
+        <div class="glass-card countdown-card">
+          <p class="countdown-label">Sudah bersama selama</p>
+          <div class="countdown-units" id="countdown-units">
+            <div class="countdown-unit">
+              <span class="countdown-number" id="cd-years">0</span>
+              <span class="countdown-text">Tahun</span>
+            </div>
+            <div class="countdown-unit">
+              <span class="countdown-number" id="cd-months">0</span>
+              <span class="countdown-text">Bulan</span>
+            </div>
+            <div class="countdown-unit">
+              <span class="countdown-number" id="cd-days">0</span>
+              <span class="countdown-text">Hari</span>
+            </div>
+            <div class="countdown-unit">
+              <span class="countdown-number" id="cd-hours">0</span>
+              <span class="countdown-text">Jam</span>
+            </div>
+            <div class="countdown-unit">
+              <span class="countdown-number" id="cd-minutes">0</span>
+              <span class="countdown-text">Menit</span>
+            </div>
+            <div class="countdown-unit">
+              <span class="countdown-number" id="cd-seconds">0</span>
+              <span class="countdown-text">Detik</span>
+            </div>
+          </div>
+          <p class="countdown-message" id="countdown-message"></p>
+        </div>
+      </div>
+      <button class="btn-nav-next" data-target="do-you-love-me">Lanjut ke Pertanyaan Penting ›</button>
+    </div>
+  </section>
+
+  <!-- ============================= -->
+  <!-- SECTION 9: DO YOU LOVE ME     -->
+  <!-- ============================= -->
+  <section id="do-you-love-me" class="page-section" aria-labelledby="dylm-heading">
+    <div class="section-inner">
+      <div class="section-badge">❤️ Pertanyaan Terpenting</div>
+      <h2 id="dylm-heading" class="section-title">Do You Love Me?</h2>
+      <div class="dylm-container glass-card" id="dylm-container">
+        <div class="dylm-heart-big" aria-hidden="true">
+          <svg viewBox="0 0 100 90" xmlns="http://www.w3.org/2000/svg">
+            <path d="M50 85 C50 85 5 55 5 30 C5 15 17 5 30 5 C38 5 45 9 50 15 C55 9 62 5 70 5 C83 5 95 15 95 30 C95 55 50 85 50 85 Z" fill="url(#heartGrad)"/>
+          </svg>
+        </div>
+        <p class="dylm-question" id="dylm-question">Apakah kamu mencintaiku?</p>
+        <div class="dylm-buttons" id="dylm-buttons">
+          <button class="btn-yes" id="btn-yes" aria-label="Ya, aku mencintaimu">💖 Iya, Tentu Saja!</button>
+          <button class="btn-no" id="btn-no" aria-label="Tidak">🙈 Tidak</button>
+        </div>
+        <div class="dylm-dialog" id="dylm-dialog" hidden>
+          <p id="dylm-dialog-text"></p>
+          <button class="btn-primary" id="btn-dialog-yes" aria-label="Oke aku akui">Baiklah, Aku Akui 💕</button>
+        </div>
+        <div class="dylm-result" id="dylm-result" hidden>
+          <div class="dylm-result-heart" aria-hidden="true">💗</div>
+          <p class="dylm-result-text">Aku tahu itu. Dan aku juga mencintaimu, lebih dari yang bisa dikatakan kata-kata.</p>
+          <p class="dylm-result-sub">Selamanya. Tanpa batas.</p>
+        </div>
+      </div>
+      <button class="btn-nav-next" data-target="ending">Ke Halaman Terakhir ›</button>
+    </div>
+  </section>
+
+  <!-- ============================= -->
+  <!-- SECTION 10: ENDING            -->
+  <!-- ============================= -->
+  <section id="ending" class="page-section" aria-labelledby="ending-heading">
+    <canvas id="confetti-canvas" aria-hidden="true"></canvas>
+    <div class="section-inner ending-inner">
+      <div class="ending-hearts" aria-hidden="true" id="ending-hearts"></div>
+      <div class="glass-card ending-card">
+        <div class="ending-main-heart" aria-hidden="true" id="ending-main-heart">
+          <svg viewBox="0 0 100 90" xmlns="http://www.w3.org/2000/svg">
+            <path d="M50 85 C50 85 5 55 5 30 C5 15 17 5 30 5 C38 5 45 9 50 15 C55 9 62 5 70 5 C83 5 95 15 95 30 C95 55 50 85 50 85 Z" fill="url(#heartGrad)"/>
+          </svg>
+        </div>
+        <h2 id="ending-heading" class="ending-title great-vibes">Forever Starts Today</h2>
+        <p class="ending-subtitle">Terima kasih sudah mau membaca ini semua. Ini bukan sekadar kata-kata. Ini adalah caraku bilang bahwa aku sangat, sangat mencintaimu.</p>
+        <div class="ending-quote">
+          "Dari hari ini hingga hari terakhirku, namamu akan selalu menjadi yang pertama dan terakhir di bibirku."
+        </div>
+        <div class="ending-actions">
+          <button class="btn-primary" id="btn-read-again" aria-label="Baca dari awal">🔄 Baca Lagi dari Awal</button>
+          <button class="btn-secondary" id="btn-celebrate" aria-label="Rayakan">🎊 Rayakan!</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
